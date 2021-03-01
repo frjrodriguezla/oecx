@@ -16,7 +16,7 @@ setup(
   name = 'oecx',
   packages = find_packages('src'),
   package_dir={'': 'src'},
-  version = '0.1.7',
+  version = '0.1.9',
   description = 'Network builder for the Observatory for Economic Complexity ',
   long_description=long_description,
   long_description_content_type='text/markdown',

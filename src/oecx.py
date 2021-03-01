@@ -4,20 +4,8 @@ import json
 import csv
 import os
 
-
-# dicionario de paises
-stop=0
-for r, d, f in os.walk("C:\\"):
-    if stop == 1:
-            break
-    for files in d:
-        if 'anaconda3' in os.path.join(r,files):
-                path=os.path.join(r,files)
-                stop=1
-                break
-
-path +="\\oecx_contry_names\\country_names.tsv"
-with open(path) as tsvfile:
+path_=os.path.expanduser('~/anaconda3/oecx_contry_names/country_names.tsv')
+with open(path_) as tsvfile:
     tsvreader = csv.reader(tsvfile, delimiter='\t')
     next(tsvreader)
     countries=[]
@@ -27,7 +15,6 @@ with open(path) as tsvfile:
         country['id_3char']= line[1]
         country['name']= line[2]
         countries.append(country)
-
 
 def net(hs4,year,traide_flow):
     # select impor or export
