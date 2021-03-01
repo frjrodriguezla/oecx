@@ -1,11 +1,23 @@
-# Librerias requeridas para el modulo:
 import requests
 import networkx as nx
 import json
 import csv
+import os
+
 
 # dicionario de paises
-with open("country_names.tsv") as tsvfile:
+stop=0
+for r, d, f in os.walk("C:\\"):
+    if stop == 1:
+            break
+    for files in d:
+        if 'anaconda3' in os.path.join(r,files):
+                path=os.path.join(r,files)
+                stop=1
+                break
+
+path +="\\oecx_contry_names\\country_names.tsv"
+with open(path) as tsvfile:
     tsvreader = csv.reader(tsvfile, delimiter='\t')
     next(tsvreader)
     countries=[]
